@@ -1,0 +1,14 @@
+tasks:
+  - name: verify
+    command: |
+      # pull user-specific environment variable into remote terminal
+      eval $(gp env -e)
+      # set directory where profiles.yml is stored
+      export DBT_PROFILES_DIR="${GITPOD_REPO_ROOT}/profiles"
+      # check dbt can connect to target
+      dbt debug
+      # update dbt dependencies
+      dbt deps
+
+image:
+  file: .gitpod.dbt.dockerfile
