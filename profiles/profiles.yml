@@ -1,0 +1,16 @@
+default:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: 
+      user: "{{ env_var('DBT_ENV_USER') }}"
+      password: "{{ env_var('DBT_ENV_SECRET_PASSWORD') }}" 
+      role: 
+
+      database: 
+      warehouse: 
+      schema: 
+      threads: 4
+      client_session_keep_alive: False
+      query_tag: 'Gitpod DBT'
